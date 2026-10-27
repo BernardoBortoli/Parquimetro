@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parking Meter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="meter">
+    <h1>Parquimetro</h1>
+    <p>Selecione o plano desejado</p>
+    <div class="options">
+      <button class="option" data-minutes="30" data-price="2">30 Minutos <strong>R$ 2,00</strong></button>
+      <button class="option" data-minutes="60" data-price="4">1 Hora <strong>R$ 4,00</strong></button>
+      <button class="option" data-minutes="120" data-price="7">2 Horas <strong>R$ 7,00</strong></button>
+    </div>
+    <p id="price">Selecione uma das opções</p>
+    <button id="start">Iniciar estacionamento</button>
+    <h2 id="timer">00:00:00</h2>
+    <p id="status">Tempo não iniciado</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
