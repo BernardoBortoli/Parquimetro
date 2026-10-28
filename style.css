@@ -1,11 +1,150 @@
-body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #eef2f7; font-family: Arial, sans-serif; color: #172033; }
-.meter { width: min(90%, 380px); box-sizing: border-box; padding: 24px; border-radius: 20px; background: white; box-shadow: 0 8px 28px #0001; text-align: center; }
-h1 { color: #0957af; }
-.options { display: grid; gap: 12px; margin: 24px 0; }
-.option { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 16px; border: 2px solid #dce3eb; border-radius: 12px; background: white; cursor: pointer; font-size: 15px; }
-.option.selected { border-color: #147d64; background: #e8f7f1; }
-button { touch-action: manipulation; }
-#start { width: 100%; padding: 14px; border: 0; border-radius: 10px; background: #0957af; color: white; font-size: 16px; font-weight: bold; cursor: pointer; }
-#start:disabled { opacity: .5; cursor: not-allowed; }
-#timer { font-size: 36px; font-variant-numeric: tabular-nums; }
-#status { color: #596579; }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: #eef2f7;
+  color: #172033;
+  font-family: Arial, sans-serif;
+}
+
+.meter {
+  width: 100%;
+  max-width: 400px;
+  padding: 28px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px #0001;
+}
+
+h1 {
+  text-align: center;
+  color: #083a96;
+}
+
+label {
+  display: block;
+  margin: 20px 0 8px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ccd4df;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #083a96;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4275d4;
+}
+
+#result {
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #f3f6f9;
+  overflow-wrap: anywhere;
+}
+
+#result h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+#message {
+  font-weight: bold;
+}
+
+.success {
+  color: #083a96;
+}
+
+.error {
+  color: #c0392b;
+}
+
+
+#timerSection {
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #e8f7f1;
+  text-align: center;
+}
+
+#timer {
+  margin: 10px 0;
+  font-size: 36px;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  color: #083a96;
+}
+
+#timerStatus {
+  font-size: 14px;
+}
+
+button:disabled,
+input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#expiredDialog {
+  width: min(90%, 360px);
+  padding: 0;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px #0004;
+}
+
+#expiredDialog::backdrop {
+  background: rgb(0 0 0 / 55%);
+}
+
+.popup-content {
+  padding: 24px;
+  text-align: center;
+}
+
+.popup-content h2 {
+  color: #c0392b;
+  font-size: 23px;
+}
+
+.popup-content p {
+  line-height: 1.5;
+}
+
+.popup-content button {
+  margin-top: 12px;
+}
+
+.error {
+  color: #c0392b;
+}
+
+.success {
+  color: #083a96;
+}
