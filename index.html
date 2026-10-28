@@ -1,50 +1,48 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parking Meter</title>
+  <title>Parquimetro</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="meter">
-    <h1>🅿 Parking Meter</h1>
-    <p>Enter your payment amount to calculate your parking time.</p>
+    <h1>Parquimetro</h1>
+    <p>Insira o valor a ser pago para calcular seu tempo de estacionamento.</p>
 
-    <label for="amount">Payment amount (R$)</label>
+    <label for="amount">Total a pagar (R$):</label>
     <input
       type="number"
       id="amount"
       min="0.01"
       max="1000"
       step="0.01"
-      placeholder="Example: 5.00"
+      placeholder="Insira o valor em reais. Ex.: 5,00"
       inputmode="decimal"
     >
 
-    <button id="calculate">Calculate</button>
+    <button id="calculate">Calcular</button>
 
     <section id="result" aria-live="polite">
-      <h2>Parking details</h2>
-      <p id="message">Enter an amount to begin.</p>
+      <h2>Informações</h2>
+      <p id="message">entre o valor a ser pago para continuar.</p>
       <p id="duration"></p>
       <p id="change"></p>
     </section>
 
-    <!-- Countdown timer -->
 <section id="timerSection" aria-live="polite">
-  <h2>Time Remaining</h2>
+  <h2>Tempo restante</h2>
   <p id="timer">00:00:00</p>
-  <p id="timerStatus">No active parking session</p>
+  <p id="timerStatus">Nenhuma sessão ativa</p>
 </section>
 
-<!-- Expiry pop-up -->
 <dialog id="expiredDialog" aria-labelledby="expiredTitle">
   <div class="popup-content">
-    <h2 id="expiredTitle">⏰ Parking Time Expired!</h2>
-    <p>Your parking session has ended.</p>
-    <p>Please renew your parking time if needed.</p>
+    <h2 id="expiredTitle">Tempo de estacionamento expirado!</h2>
+    <p>Sua sessão terminou.</p>
+    <p>Renove o seu plano para continuar.</p>
     <button id="closePopup" type="button">OK</button>
   </div>
 </dialog>

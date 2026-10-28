@@ -13,7 +13,7 @@ class ParkingMeter {
 
   calculate(amount) {
     if (!Number.isFinite(amount)) {
-      return { success: false, message: "Enter a valid amount." };
+      return { success: false, message: "Insira uma quantia valida." };
     }
 
     const cents = Math.round(amount * 100);
@@ -21,21 +21,21 @@ class ParkingMeter {
     if (Math.abs(amount * 100 - cents) > 0.000001) {
       return {
         success: false,
-        message: "Use no more than two decimal places."
+        message: "Use no máximo duas casas decimais."
       };
     }
 
     if (cents < 100) {
       return {
         success: false,
-        message: "Insufficient payment. Minimum amount: R$ 1.00."
+        message: "Pagamento insuficiente. Valor minimo: R$ 1.00."
       };
     }
 
     if (cents > this.maxPayment) {
       return {
         success: false,
-        message: "Maximum payment is R$ 1,000.00."
+        message: "O pagamento maximo é de R$ 1,000.00."
       };
     }
 
@@ -46,7 +46,7 @@ class ParkingMeter {
     if (!tier) {
       return {
         success: false,
-        message: "Insufficient payment. The cheapest parking option costs R$ 2.00."
+        message: "Pagamento insuficiente. O valor minimo é de R$ 2.00."
       };
     }
 
@@ -83,7 +83,7 @@ const currency = value =>
 
 function displayError(text) {
   message.textContent = text;
-  message.className = "error";
+  message.className = "Erro";
   duration.textContent = "";
   change.textContent = "";
 }
@@ -118,13 +118,12 @@ function updateCountdown() {
     sessionActive = false;
 
     timerDisplay.textContent = "00:00:00";
-    timerStatus.textContent = "Parking time expired!";
-    timerStatus.className = "error";
+    timerStatus.textContent = "Tempo de estacionamento expirado!";
+    timerStatus.className = "Erro";
 
     amountInput.disabled = false;
     calculateButton.disabled = false;
 
-    // Show the expiry pop-up automatically.
     if (!expiredDialog.open) {
       expiredDialog.showModal();
     }
@@ -140,8 +139,8 @@ function startCountdown(minutes) {
   amountInput.disabled = true;
   calculateButton.disabled = true;
 
-  timerStatus.textContent = "Parking session active";
-  timerStatus.className = "success";
+  timerStatus.textContent = "Sessão ativa";
+  timerStatus.className = "Sucesso";
 
   updateCountdown();
 
@@ -158,7 +157,7 @@ function calculateParking() {
     amountInput.validity.badInput ||
     !amountInput.validity.valid
   ) {
-    displayError("Enter a valid amount between R$ 0.01 and R$ 1,000.00, with at most two decimal places.");
+    displayError("Insira uma quantia valida entre R$ 0.01 e R$ 1,000.00, com no máximo duas casas decimais.");
     return;
   }
 
@@ -170,8 +169,8 @@ function calculateParking() {
     return;
   }
 
-  message.textContent = "Payment calculated successfully!";
-  message.className = "success";
+  message.textContent = "Pagamento realizado com sucesso!";
+  message.className = "Sucesso";
 
   duration.textContent =
     `Parking time: ${result.minutes} minutes` +
@@ -203,7 +202,6 @@ closePopup.addEventListener("click", () => {
 expiredDialog.addEventListener("close", () => {
   amountInput.value = "";
   amountInput.focus();
-  timerStatus.textContent = "Ready for a new parking session";
+  timerStatus.textContent = "Pronto para iniciar uma nova sessão";
   timerStatus.className = "";
 });
-
