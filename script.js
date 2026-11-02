@@ -3,9 +3,9 @@
 class ParkingMeter {
   constructor() {
     this.tiers = [
-      { price: 200, minutes: 30 },
-      { price: 400, minutes: 60 },
-      { price: 700, minutes: 120 }
+      { price: 100, minutes: 30 },
+      { price: 175, minutes: 60 },
+      { price: 300, minutes: 120 }
     ];
 
     this.maxPayment = 100000; // R$ 1,000.00
@@ -46,7 +46,7 @@ class ParkingMeter {
     if (!tier) {
       return {
         success: false,
-        message: "Pagamento insuficiente. O valor minimo é de R$ 2.00."
+        message: "Pagamento insuficiente. O valor minimo é de R$ 1.00."
       };
     }
 
